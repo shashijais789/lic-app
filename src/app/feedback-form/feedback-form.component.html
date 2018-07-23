@@ -1,0 +1,70 @@
+<div class="container">
+  <form #feedbackForm = "ngForm">
+  <div class="form-group">
+    <label>Policy Number:
+      <input [(ngModel)]="feedback.policyId" placeholder="Policy Number">
+    </label>
+  </div>
+  <div class="form-group">
+    <label>First Name:
+      <input [(ngModel)]="feedback.firstName" placeholder="First Name">
+    </label>
+  </div>
+  <div>
+    <label>Last Name:
+      <input [(ngModel)]="feedback.lastName" placeholder="Last Name">
+    </label>
+  </div>
+
+  <div class="form-group">
+      <label>Do you use our Customer Portal? 
+          <input [(ngModel)]="feedback.isPortalUsed" type="radio" id="isPortalUsedBtn1" name = "isPortalUsed" required [value]="true"> Yes
+          <input [(ngModel)]="feedback.isPortalUsed" type="radio" id="isPortalUsedBtn2" name = "isPortalUsed" required [value]="false"> No
+      </label>
+  </div>
+
+  <div class="form-group">
+      <label>Do you know about our online loan repayment module ?
+          <input [(ngModel)]="feedback.isOLRKnown" type="radio" id="isOLRKnownBtn1" name = "isOLRKnown" required [value]="true"> Yes
+          <input [(ngModel)]="feedback.isOLRKnown" type="radio" id="isOLRKnownBtn2" name = "isOLRKnown" required [value]="false"> No
+      </label>
+  </div>
+
+  <div class="form-group">
+      <label>
+          <div>
+            Are you satisfied with the services provided by LIC ? Please rate us on scale of 1 to 5, where 1 means not satisfied and 5 means very much satisfied.
+          </div>
+          <div>
+            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn1" name = "serviceRating" required [value]="1"> 1
+            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn2" name = "serviceRating" required [value]="2"> 2
+            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn3" name = "serviceRating" required [value]="3"> 3
+            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn4" name = "serviceRating" required [value]="4"> 4
+            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn5" name = "serviceRating" required [value]="5"> 5
+          </div>          
+      </label>
+  </div>
+
+  <div class="form-group">
+      <label>
+        <div>
+            How likely is it that you will recommend our products to your friends/relatives ? 
+            Please rate us on scale of 1 to 5, where 1 means won't recommend and 5 means definitely recommend.
+        </div>
+        <div>
+          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn1" name = "recomendationRating" required [value]="1"> 1
+          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn2" name = "recomendationRating" required [value]="2"> 2
+          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn3" name = "recomendationRating" required [value]="3"> 3
+          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn4" name = "recomendationRating" required [value]="4"> 4
+          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn5" name = "recomendationRating" required [value]="5"> 5
+        </div>
+      </label>     
+  </div>
+  <div class="form-group">
+    <label>Please feel free to share your experience:
+      <input [(ngModel)]="feedback.experienceDesc" type="textarea">
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
