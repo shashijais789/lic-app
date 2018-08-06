@@ -1,70 +1,78 @@
-<div class="container">
-  <form #feedbackForm = "ngForm">
+<div class="container" >
+  <form (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label>Policy Number:
-      <input [(ngModel)]="feedback.policyId" placeholder="Policy Number">
-    </label>
+    <label for = "policyId">Policy Number:</label>
+    <input [(ngModel)]="feedback.policyId" placeholder="Policy Number" name="policyId" id = "policyId" class="form-control">
   </div>
   <div class="form-group">
-    <label>First Name:
-      <input [(ngModel)]="feedback.firstName" placeholder="First Name">
-    </label>
+    <label for ="firstName">First Name:</label>
+    <input [(ngModel)]="feedback.firstName" placeholder="First Name" name = "firstName" class="form-control">
   </div>
   <div>
-    <label>Last Name:
-      <input [(ngModel)]="feedback.lastName" placeholder="Last Name">
-    </label>
+    <label for = "lastName">Last Name:</label>
+    <input [(ngModel)]="feedback.lastName" placeholder="Last Name" name = "lastName" class="form-control">
+  </div>
+
+  <div class="form-group form-check">
+      <label for = "isPortalUsed">Do you use our Customer Portal? </label>
+      <input [(ngModel)]="feedback.isPortalUsed" type="radio" name = "isPortalUsed" id = "isPortalUsedCB1"
+          required [value]="true" class="form-check-input">
+      <label class="form-check-label" for="isPortalUsedCB1"> Yes </label>
+      <input [(ngModel)]="feedback.isPortalUsed" type="radio" name = "isPortalUsed" id = "isPortalUsedCB2"
+          required [value]="false" class="form-check-input">
+      <label class="form-check-label" for="isPortalUsedCB2"> No </label>
+  </div>
+
+  <div class="form-group form-check">
+      <label for = "isOLRKnown">Do you know about our online loan repayment module ?</label>
+      <input [(ngModel)]="feedback.isOLRKnown" type="radio" name = "isOLRKnown" id = "isOLRKnownCB1"
+          required [value]="true" class="form-check-input">
+      <label class="form-check-label" for="isOLRKnownCB1"> Yes </label>
+      <input [(ngModel)]="feedback.isOLRKnown" type="radio" name = "isOLRKnown" id = "isOLRKnownCB2"
+      required [value]="false" class="form-check-input">
+      <label class="form-check-label" for="isOLRKnownCB2"> No </label>
+  </div>
+
+  <div class="form-group form-check">
+      <label for ="serviceRating">
+        Are you satisfied with the services provided by LIC ? Please rate us on scale of 1 to 5, where 1 means not satisfied and 5 means very much satisfied.
+      </label>  
+      <input [(ngModel)]="feedback.serviceRating" type="radio" name = "serviceRating" 
+        required [value]="1" id = "serviceRating1" class="form-check-input"> 1
+      <input [(ngModel)]="feedback.serviceRating" type="radio" name = "serviceRating" 
+        required [value]="2" id = "serviceRating2" class="form-check-input"> 2
+      <input [(ngModel)]="feedback.serviceRating" type="radio" name = "serviceRating" 
+        required [value]="3" id = "serviceRating3" class="form-check-input"> 3
+      <input [(ngModel)]="feedback.serviceRating" type="radio" name = "serviceRating" 
+        required [value]="4" id = "serviceRating4" class="form-check-input"> 4
+      <input [(ngModel)]="feedback.serviceRating" type="radio" name = "serviceRating" 
+        required [value]="5" id = "serviceRating5" class="form-check-input"> 5
   </div>
 
   <div class="form-group">
-      <label>Do you use our Customer Portal? 
-          <input [(ngModel)]="feedback.isPortalUsed" type="radio" id="isPortalUsedBtn1" name = "isPortalUsed" required [value]="true"> Yes
-          <input [(ngModel)]="feedback.isPortalUsed" type="radio" id="isPortalUsedBtn2" name = "isPortalUsed" required [value]="false"> No
-      </label>
-  </div>
-
-  <div class="form-group">
-      <label>Do you know about our online loan repayment module ?
-          <input [(ngModel)]="feedback.isOLRKnown" type="radio" id="isOLRKnownBtn1" name = "isOLRKnown" required [value]="true"> Yes
-          <input [(ngModel)]="feedback.isOLRKnown" type="radio" id="isOLRKnownBtn2" name = "isOLRKnown" required [value]="false"> No
-      </label>
-  </div>
-
-  <div class="form-group">
-      <label>
-          <div>
-            Are you satisfied with the services provided by LIC ? Please rate us on scale of 1 to 5, where 1 means not satisfied and 5 means very much satisfied.
-          </div>
-          <div>
-            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn1" name = "serviceRating" required [value]="1"> 1
-            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn2" name = "serviceRating" required [value]="2"> 2
-            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn3" name = "serviceRating" required [value]="3"> 3
-            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn4" name = "serviceRating" required [value]="4"> 4
-            <input [(ngModel)]="feedback.serviceRating" type="radio" id="serviceRatingBtn5" name = "serviceRating" required [value]="5"> 5
-          </div>          
-      </label>
-  </div>
-
-  <div class="form-group">
-      <label>
-        <div>
-            How likely is it that you will recommend our products to your friends/relatives ? 
+      <label for = "recomendationRating">
+        How likely is it that you will recommend our products to your friends/relatives ? 
             Please rate us on scale of 1 to 5, where 1 means won't recommend and 5 means definitely recommend.
-        </div>
-        <div>
-          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn1" name = "recomendationRating" required [value]="1"> 1
-          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn2" name = "recomendationRating" required [value]="2"> 2
-          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn3" name = "recomendationRating" required [value]="3"> 3
-          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn4" name = "recomendationRating" required [value]="4"> 4
-          <input [(ngModel)]="feedback.recomendationRating" type="radio" id="recomendationRatingBtn5" name = "recomendationRating" required [value]="5"> 5
-        </div>
-      </label>     
+      </label>
+      <input [(ngModel)]="feedback.recomendationRating" type="radio" name = "recomendationRating" 
+        required [value]="1" id = "recomendationRating1" class="form-check-input"> 1
+      <input [(ngModel)]="feedback.recomendationRating" type="radio" name = "recomendationRating" 
+        required [value]="2" id = "recomendationRating2" class="form-check-input"> 2
+      <input [(ngModel)]="feedback.recomendationRating" type="radio" name = "recomendationRating" 
+        required [value]="3" id = "recomendationRating3" class="form-check-input"> 3
+      <input [(ngModel)]="feedback.recomendationRating" type="radio" name = "recomendationRating" 
+        required [value]="4" id = "recomendationRating4" class="form-check-input"> 4
+      <input [(ngModel)]="feedback.recomendationRating" type="radio" name = "recomendationRating" 
+        required [value]="5" id = "recomendationRating5" class="form-check-input"> 5
   </div>
   <div class="form-group">
-    <label>Please feel free to share your experience:
-      <input [(ngModel)]="feedback.experienceDesc" type="textarea">
-    </label>
+    <label for = "experienceDesc">Please feel free to share your experience:</label>
+    <input [(ngModel)]="feedback.experienceDesc" type="textarea" name = "experienceDesc" class="form-control">
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-success">Submit</button>
 </form>
+
+<div ngFor="let fb for feedbackList | async">
+  {{fb | json}}
+</div>
 </div>

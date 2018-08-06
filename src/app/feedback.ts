@@ -1,10 +1,14 @@
 export class Feedback {
-    policyId: number;
-    firstName: string;
-    lastName: string;
-    isPortalUsed: boolean;
-    isOLRKnown: boolean;
-    serviceRating: number;
-    recomendationRating: number;
-    experienceDesc: string;
+
+    constructor(
+        public policyId: number,
+        public firstName: string,
+        public lastName: string,
+        public isPortalUsed: boolean,
+        public isOLRKnown: boolean,
+        public serviceRating: number,
+        public recomendationRating: number,
+        public experienceDesc: string
+    ){ }
+    
 }
