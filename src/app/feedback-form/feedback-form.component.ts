@@ -6,6 +6,7 @@ import {URLSearchParams} from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
+
 @Component({
   selector: 'feedback-form',
   templateUrl: './feedback-form.component.html',
@@ -13,7 +14,7 @@ import {Observable} from 'rxjs/Observable';
 })
 export class FeedbackFormComponent {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: Http) { }
   
   
   apiRoot: string = "http://localhost:8090/api/fdi";  
@@ -25,6 +26,23 @@ export class FeedbackFormComponent {
     console.log('submit called !!!!!');
     console.log(this.feedback);
     this.submitted = true; 
+    //this.feedbackList =  this.http.get<Feedback[]>(this.apiRoot)
+    console.log("Submit new Feedback!");
+    //let url = this.apiRoot}';
+    //console.log(url);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let opts = new RequestOptions();
+    opts.headers = headers;
+    // this.http.post(url, this.feedback).subscribe(
+    //   res => console.log(res.json()),
+    //   msg => console.error(`Error: ${msg.status} ${msg.statusText}`)
+    // );
+    // this.http.get(url).subscribe(
+    //   res => console.log(console.log(res.text()),
+    //   msg => console.error(`Error: ${msg.status} ${msg.statusText}`)
+    // );
+    this.http.get(this.apiRoot).subscribe(res => console.log(res.json()));
   }
 
 
