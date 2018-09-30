@@ -16,31 +16,39 @@ export class FeedbackFormComponent {
   constructor(private http: HttpClient) { }
   
   
-  private apiRoot: string = "http://localhost:8090/api/fdi";  
-  private feedback = new Feedback(0, "Shashi", "Jais", false, true, 0, 0, "");
-  private feedbackList: any;
+  apiRoot: string = "http://localhost:8090/api/fdi";  
+  feedback = new Feedback(0, "Shashi", "Jais", false, true, 0, 0, "");
+  feedbackList: any;
+  submitted = false;
 
-  onSubmit () {
-    this.feedbackList =  this.http.get<Feedback[]>(this.apiRoot)
+  onSubmit() { 
+    console.log('submit called !!!!!');
+    console.log(this.feedback);
+    this.submitted = true; 
   }
+
+
+  // onSubmit () {
+  //   this.feedbackList =  this.http.get<Feedback[]>(this.apiRoot)
+  // }
 
   //submitted = false;
 
-  /*
-  onSubmit(){ 
-    //console.log(JSON.stringify(this.feedback));
-    console.log("GET all feedback called!");
-    let url = `${this.apiRoot}`;
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    let opts = new RequestOptions();
-    opts.headers = headers;
-    this.http.get(url, opts).subscribe(
-      res => console.log(res.json()),
-      msg => console.error(`Error: ${msg.status} ${msg.statusText}`)
-    );
-  }
 
+ // onSubmit(){ 
+    //console.log(JSON.stringify(this.feedback));
+   // console.log("GET all feedback called!");
+    // let url = `${this.apiRoot}`;
+    // let headers = new Headers();
+    // headers.append('Content-Type', 'application/json');
+    // let opts = new RequestOptions();
+    // opts.headers = headers;
+    // this.http.get(url, opts).subscribe(
+    //   res => console.log(res.json()),
+    //   msg => console.error(`Error: ${msg.status} ${msg.statusText}`)
+    // );
+  //}
+  /*
   onSubmit1(){
     console.log("Submit new Feedback!");
     let url = `${this.apiRoot}`;
@@ -61,6 +69,6 @@ export class FeedbackFormComponent {
   ngOnInit() {
   }
   */
-  //get currentFeedback() { return JSON.stringify(this.feedback); }
+  get currentFeedback() { return JSON.stringify(this.feedback); }
 
 }
