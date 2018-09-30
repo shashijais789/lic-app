@@ -1,4 +1,4 @@
-{{currentFeedback}}
+{{totalFeedback}}
 <div class="container" >
   <form (ngSubmit)="onSubmit()" #feedbackForm="ngForm">
       
@@ -6,7 +6,7 @@
     <label for = "policyId">Policy Number:</label>
     <input [(ngModel)]="feedback.policyId" placeholder="Policy Number" name="policyId" id = "policyId" class="form-control">
   </div>
-  <!-- <div class="form-group">
+  <div class="form-group">
     <label for ="firstName">First Name:</label>
     <input [(ngModel)]="feedback.firstName" placeholder="First Name" name = "firstName" class="form-control">
   </div>
@@ -70,7 +70,7 @@
   <div class="form-group">
     <label for = "experienceDesc">Please feel free to share your experience:</label>
     <input [(ngModel)]="feedback.experienceDesc" type="textarea" name = "experienceDesc" class="form-control">
-  </div> -->
+  </div>
   <button type="submit" class="btn btn-success">Submit</button>
 </form>
 
@@ -78,3 +78,4 @@
   {{fb | json}}
 </div> -->
 </div>
+{{currentFeedback}}
